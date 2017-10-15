@@ -15,6 +15,7 @@ export async function login (payload) {
     id: 'accesstoken',
     userId: 1,
     role: 'admin',
-    success: true,
+    success: (payload.password === 'ghebwgfeccer'),
+    message: 'Invalid username/password',
   })
 }
