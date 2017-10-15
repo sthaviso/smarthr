@@ -2,8 +2,10 @@
 
 #### Setup
 ```
-git clone git@gitlab.com:varunsl/supplylincV2.git supplylinc
-cd supplylinc/packages/app
+mkdir supplylinc
+cd supplylinc
+git clone git@gitlab.com:supplylinc/demo.git
+cd demo
 npm install
 ```
 #### Run Dev Server
