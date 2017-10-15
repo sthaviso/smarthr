@@ -1,0 +1,29 @@
+{
+  "entry": "src/index.js",
+  "hash": true,
+  "multipage": true,
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": true }]
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime",
+        ["import", { "libraryName": "antd", "style": true }]
+      ]
+    }
+  },
+  "theme": {
+    "primary-color": "#88ECF9",
+    "success-color": "#00DE9C",
+    "error-color": "#F34673",
+    "info-color": "#344348",
+    "body-background": "#FFFFFF",
+    "layout-body-background": "#FFFFFF",
+    "component-background": "#FFFFFF"
+  }
+}
