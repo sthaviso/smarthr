@@ -61,6 +61,15 @@ const integrations = {
       expiry: false,
     }
   },
+  DOCUMENT (data) {
+    return {
+      logo: '/integrations/rest.png',
+      title: data.name,
+      subtitle: `Created by ${data.by}`,
+      info: data.status === 'READY' ? 'Available to upload' : 'Pending Review',
+      expiry: true,
+    }
+  },
 }
 
 const menu = (

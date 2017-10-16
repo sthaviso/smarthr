@@ -1,4 +1,4 @@
-import { fetchUsers, fetchApiIntegrations } from 'services/home'
+import { fetchUsers, fetchApiIntegrations, fetchDocumentUploads } from 'services/home'
 
 export default {
   namespace: 'home',
@@ -10,6 +10,7 @@ export default {
   subscriptions: {
     setup ({ dispatch }) {
       dispatch({ type: 'fetchApiIntegrations' })
+      dispatch({ type: 'fetchDocumentUploads' })
       dispatch({ type: 'fetchUsers' })
     },
   },
@@ -18,6 +19,14 @@ export default {
       const data = yield call(fetchApiIntegrations)
       if (data.success) {
         yield put({ type: 'apiIntegrations', apiIntegrations: data.integrations })
+      } else {
+        throw (data)
+      }
+    },
+    * fetchDocumentUploads (action, { call, put, select }) {
+      const data = yield call(fetchDocumentUploads)
+      if (data.success) {
+        yield put({ type: 'documentUploads', documentUploads: data.documents })
       } else {
         throw (data)
       }
@@ -42,6 +51,12 @@ export default {
       return {
         ...state,
         apiIntegrations,
+      }
+    },
+    documentUploads (state, { documentUploads }) {
+      return {
+        ...state,
+        documentUploads,
       }
     },
   },

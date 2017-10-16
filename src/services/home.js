@@ -83,3 +83,38 @@ export async function fetchApiIntegrations (payload) {
     }],
   })
 }
+
+export async function fetchDocumentUploads (payload) {
+  return mockRequest({
+    success: true,
+    documents: [{
+      id: 1,
+      type: 'DOCUMENT',
+      name: 'Bill of Lading',
+      by: 'Kapil G',
+      status: 'READY',
+      expiry: '10/31/2017',
+    }, {
+      id: 1,
+      type: 'DOCUMENT',
+      name: 'Invoice',
+      by: 'Chris K',
+      status: 'READY',
+      expiry: '08/31/2018',
+    }, {
+      id: 1,
+      type: 'DOCUMENT',
+      name: 'Purchase Order',
+      by: 'Raj P',
+      status: 'PENDING',
+      expiry: '03/15/2019',
+    }, {
+      id: 1,
+      type: 'DOCUMENT',
+      name: 'Contract',
+      by: 'Chris K',
+      status: 'READY',
+      expiry: '12/31/2017',
+    }],
+  })
+}

@@ -8,7 +8,7 @@ import styles from './index.less'
 const TabPane = Tabs.TabPane
 
 const Home = ({ home, loading }) => {
-  const { users, apiIntegrations } = home
+  const { users, apiIntegrations, documentUploads } = home
 
   function callback (key) {
     console.log(key)
@@ -24,7 +24,7 @@ const Home = ({ home, loading }) => {
               <Integrations data={apiIntegrations} />
             </TabPane>
             <TabPane tab="Document Upload" key="document">
-              {'Document Uploads'}
+              <Integrations data={documentUploads} />
             </TabPane>
           </Tabs>
         </div>
