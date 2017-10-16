@@ -63,7 +63,7 @@ const integrations = {
   },
   DOCUMENT (data) {
     return {
-      logo: '/integrations/rest.png',
+      logo: '/integrations/document.png',
       title: data.name,
       subtitle: `Created by ${data.by}`,
       info: data.status === 'READY' ? 'Available to upload' : 'Pending Review',
