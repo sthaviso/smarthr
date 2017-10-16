@@ -5,7 +5,7 @@ import styles from './Title.less'
 const Title = ({ heading, subheading }) => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading} >{heading}</h2>
+      <h1 className={styles.heading} >{heading}</h1>
       { subheading ? (<p className={styles.subheading}>{subheading}</p>) : '' }
     </div>
   )

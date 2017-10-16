@@ -25,6 +25,8 @@
     "body-background": "#FFFFFF",
     "layout-body-background": "#FFFFFF",
     "component-background": "#FFFFFF",
-    "font-family": "Poppins"
+    "font-family": "Poppins",
+    "layout-header-background": "#344348",
+    "text-color": "#344348"
   }
 }
