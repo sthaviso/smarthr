@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Card } from 'antd'
+import { Menu, Button, Card, Dropdown } from 'antd'
 import moment from 'moment'
 import styles from './IntegrationCard.less'
 
@@ -63,10 +63,22 @@ const integrations = {
   },
 }
 
+const menu = (
+  <Menu>
+    <Menu.Item>Details</Menu.Item>
+    <Menu.Item>Trigger Now</Menu.Item>
+  </Menu>
+)
+
 const IntegrationCard = ({ data }) => {
   const integration = integrations[data.type](data)
   return (
     <Card>
+      <div className={styles.actions}>
+        <Dropdown overlay={menu}>
+          <Button icon={'ellipsis'} size={'large'} className={styles.action} />
+        </Dropdown>
+      </div>
       <div className={styles.logo}>
         <img src={integration.logo} alt={integration.subtitle} />
       </div>
