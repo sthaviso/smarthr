@@ -13,8 +13,11 @@
     "antd": "^2.13.6",
     "babel-plugin-import": "^1.6.1",
     "babel-runtime": "^6.9.2",
+    "chunk": "0.0.2",
     "dva": "^2.0.3",
     "dva-loading": "^1.0.2",
+    "moment": "^2.19.1",
+    "moment-duration-format-frequency": "^1.1.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.0"
   },

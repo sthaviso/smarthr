@@ -24,6 +24,7 @@
     "info-color": "#344348",
     "body-background": "#FFFFFF",
     "layout-body-background": "#FFFFFF",
-    "component-background": "#FFFFFF"
+    "component-background": "#FFFFFF",
+    "font-family": "Poppins"
   }
 }
