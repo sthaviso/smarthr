@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import { Tabs, Row, Col } from 'antd'
-import { Users, Title, Integrations } from 'components'
+import { Tabs, Button } from 'antd'
+import { Users, Title, Integrations, IntegrationPicklist } from 'components'
 import styles from './index.less'
 
 const TabPane = Tabs.TabPane
 
-const Home = ({ home, loading }) => {
-  const { users, apiIntegrations, documentUploads } = home
+const Home = ({ home, loading, dispatch }) => {
+  const { users, apiIntegrations, documentUploads, modals } = home
 
   function callback (key) {
     console.log(key)
@@ -17,7 +17,17 @@ const Home = ({ home, loading }) => {
   return (
     <Tabs defaultActiveKey="integrations" onChange={callback}>
       <TabPane tab="Integrations" key="integrations">
-        <Title heading="Your Integrations" subheading="Select an API integration or document structure to upload" />
+        <IntegrationPicklist visible={modals.integrationPicklist}
+          onClose={() => { dispatch({ type: 'home/toggleModal', modals: { integrationPicklist: false } }) }}
+          onSelect={(key) => { console.log(key) }}
+        />
+        <Title heading="Your Integrations" subheading="Select an API integration or document structure to upload"
+          icon={
+            <Button icon={'plus'} type={'primary'} onClick={() => {
+              dispatch({ type: 'home/toggleModal', modals: { integrationPicklist: true } })
+            }}
+            />}
+        />
         <div className={styles.integrations}>
           <Tabs defaultActiveKey="api" onChange={callback}>
             <TabPane tab="Api Integration" key="api">
@@ -39,7 +49,9 @@ const Home = ({ home, loading }) => {
 }
 
 Home.propTypes = {
+  home: PropTypes.object,
   loading: PropTypes.object,
+  dispatch: PropTypes.func,
 }
 
 export default connect(({ home, loading }) => ({ home, loading }))(Home)

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Menu, Button, Card, Dropdown } from 'antd'
 import moment from 'moment'
+import { integrations as iConfig } from 'config'
 import styles from './IntegrationCard.less'
 
 require('moment-duration-format-frequency')
@@ -9,7 +10,7 @@ require('moment-duration-format-frequency')
 const integrations = {
   SALESFORCE (data) {
     return {
-      logo: '/integrations/salesforce.png',
+      logo: iConfig.SALESFORCE.logo,
       title: `${data.object} Read`,
       subtitle: 'Salesforce Integration',
       info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)} at ${moment(data.frequency.at, 'HH:mm').format('hh:mm a')}`,
@@ -18,7 +19,7 @@ const integrations = {
   },
   ORACLE (data) {
     return {
-      logo: '/integrations/oracle.png',
+      logo: iConfig.ORACLE.logo,
       title: `${data.object} Read`,
       subtitle: 'Oracle Integration',
       info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)} at ${moment(data.frequency.at, 'HH:mm').format('hh:mm a')}`,
@@ -27,7 +28,7 @@ const integrations = {
   },
   SAP (data) {
     return {
-      logo: '/integrations/sap.png',
+      logo: iConfig.SAP.logo,
       title: `${data.object} Read`,
       subtitle: 'SAP Integration',
       info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)} at ${moment(data.frequency.at, 'HH:mm').format('hh:mm a')}`,
@@ -36,7 +37,7 @@ const integrations = {
   },
   TTSENSOR () {
     return {
-      logo: '/integrations/avery_dennison.png',
+      logo: iConfig.TTSENSOR.logo,
       title: 'TT Sensor',
       subtitle: 'Avery Dennison Integration',
       info: 'Posts on phone tap',
@@ -45,7 +46,7 @@ const integrations = {
   },
   TRUCKTRACK () {
     return {
-      logo: '/integrations/fourkites.png',
+      logo: iConfig.TRUCKTRACK.logo,
       title: 'Truck Tracking',
       subtitle: 'Four Kites Integration',
       info: 'Posts on phone tap',
@@ -54,7 +55,7 @@ const integrations = {
   },
   REST (data) {
     return {
-      logo: '/integrations/rest.png',
+      logo: iConfig.REST.logo,
       title: 'JSON Endpoint',
       subtitle: 'Custom API Integration',
       info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)} at ${moment(data.frequency.at, 'HH:mm').format('hh:mm a')}`,
@@ -63,7 +64,7 @@ const integrations = {
   },
   DOCUMENT (data) {
     return {
-      logo: '/integrations/document.png',
+      logo: iConfig.DOCUMENT.logo,
       title: data.name,
       subtitle: `Created by ${data.by}`,
       info: data.status === 'READY' ? 'Available to upload' : 'Pending Review',
@@ -82,7 +83,7 @@ const menu = (
 const IntegrationCard = ({ data }) => {
   const integration = integrations[data.type](data)
   return (
-    <Card>
+    <Card className={styles.container}>
       <div className={styles.actions}>
         <Dropdown overlay={menu}>
           <Button icon={'ellipsis'} size={'large'} className={styles.action} />

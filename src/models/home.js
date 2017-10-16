@@ -6,6 +6,9 @@ export default {
     users: [],
     apiIntegrations: [],
     documentUploads: [],
+    modals: {
+      integrationPicklist: false,
+    },
   },
   subscriptions: {
     setup ({ dispatch }) {
@@ -57,6 +60,15 @@ export default {
       return {
         ...state,
         documentUploads,
+      }
+    },
+    toggleModal (state, { modals }) {
+      return {
+        ...state,
+        modals: {
+          ...state.modals,
+          ...modals,
+        },
       }
     },
   },
