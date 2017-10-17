@@ -1,13 +1,14 @@
-import { fetchUsers, fetchApiIntegrations, fetchDocumentUploads } from 'services/home'
+import { fetchUsers, fetchApiIntegrations, fetchDocumentUploads } from 'services/setup'
 
 export default {
-  namespace: 'home',
+  namespace: 'setup',
   state: {
     users: [],
     apiIntegrations: [],
     documentUploads: [],
     modals: {
       integrationPicklist: false,
+      restConfig: false,
     },
   },
   subscriptions: {

@@ -16,7 +16,7 @@ const IntegrationPicklist = ({ visible,  onClose, onSelect }) => {
           <Row type="flex" justify="space-around" align="middle" key={rowIndex}>
             {row.map((col, colIndex) => (
               <Col span={7} key={`${rowIndex}_${colIndex}`}>
-                { !col.placeholder ? (<Card className={styles.logo_container} onClick={() => { onSelect(col.key); onClose() }}>
+                { !col.placeholder ? (<Card className={styles.logo_container} onClick={() => { if (onSelect(col.key)) onClose() }}>
                   <div className={styles.logo}><img src={col.logo} alt={col.name} /></div>
                   <p>{col.name}</p>
                 </Card>) : '' }

@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { Tabs, Button } from 'antd'
-import { Users, Title, Integrations, IntegrationPicklist } from 'components'
+import { Users, Title, Integrations, IntegrationPicklist, RestConfig } from 'components'
 import styles from './index.less'
 
 const TabPane = Tabs.TabPane
 
-const Home = ({ home, loading, dispatch }) => {
-  const { users, apiIntegrations, documentUploads, modals } = home
+const Setup = ({ setup, loading, dispatch }) => {
+  const { users, apiIntegrations, documentUploads, modals } = setup
 
   function callback (key) {
     console.log(key)
@@ -18,13 +18,23 @@ const Home = ({ home, loading, dispatch }) => {
     <Tabs defaultActiveKey="integrations" onChange={callback}>
       <TabPane tab="Integrations" key="integrations">
         <IntegrationPicklist visible={modals.integrationPicklist}
-          onClose={() => { dispatch({ type: 'home/toggleModal', modals: { integrationPicklist: false } }) }}
-          onSelect={(key) => { console.log(key) }}
+          onClose={() => { dispatch({ type: 'setup/toggleModal', modals: { integrationPicklist: false } }) }}
+          onSelect={(key) => {
+            if (key === 'REST') {
+              dispatch({ type: 'setup/toggleModal', modals: { restConfig: true } })
+              return true
+            }
+
+            return false
+          }}
+        />
+        <RestConfig visible={modals.restConfig}
+          onClose={() => { dispatch({ type: 'setup/toggleModal', modals: { restConfig: false } }) }}
         />
         <Title heading="Your Integrations" subheading="Select an API integration or document structure to upload"
           icon={
             <Button icon={'plus'} type={'primary'} onClick={() => {
-              dispatch({ type: 'home/toggleModal', modals: { integrationPicklist: true } })
+              dispatch({ type: 'setup/toggleModal', modals: { integrationPicklist: true } })
             }}
             />}
         />
@@ -48,10 +58,10 @@ const Home = ({ home, loading, dispatch }) => {
   )
 }
 
-Home.propTypes = {
-  home: PropTypes.object,
+Setup.propTypes = {
+  setup: PropTypes.object,
   loading: PropTypes.object,
   dispatch: PropTypes.func,
 }
 
-export default connect(({ home, loading }) => ({ home, loading }))(Home)
+export default connect(({ setup, loading }) => ({ setup, loading }))(Setup)
