@@ -55,8 +55,17 @@ const Setup = ({ setup, loading, dispatch }) => {
       </TabPane>
       <TabPane tab="Smart Contract Logic" key="contracts">Content of Smart Contract Logic tab</TabPane>
       <TabPane tab="Manage Users" key="users">
-        <Title heading="Users in your organization" subheading="Add a user by email and they can confirm participation in your org" />
-        <Users data={users} />
+        <Title heading="Users in your organization" subheading="Add a user by email and they can confirm participation in your org"
+          icon={
+            <Button icon={'plus'} type={'primary'} onClick={() => {
+              dispatch({ type: 'setup/userAdd' })
+            }}
+            />}
+        />
+        <Users data={users}
+          onDelete={(user) => { dispatch({ type: 'setup/userDelete', user }) }}
+          onSave={(user) => { dispatch({ type: 'setup/userSave', user }) }}
+        />
       </TabPane>
     </Tabs>
   )

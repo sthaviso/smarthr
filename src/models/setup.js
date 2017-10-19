@@ -76,11 +76,42 @@ export default {
       const apiIntegrations = state.apiIntegrations
       apiIntegrations.push({
         ...integration,
-        id: apiIntegrations.length,
+        id: apiIntegrations.length + 1,
       })
       return {
         ...state,
         apiIntegrations,
+      }
+    },
+    userDelete (state, { user }) {
+      return {
+        ...state,
+        users: state.users.filter(u => u.id !== user.id),
+      }
+    },
+    userAdd (state) {
+      let users = state.users
+      if (!state.users.filter(user => user.id === 'new').length) {
+        users.unshift({
+          id: 'new',
+          invitation: 'PENDING',
+        })
+      }
+      return {
+        ...state,
+        users,
+      }
+    },
+    userSave (state, { user }) {
+      let users = state.users.filter(u => u.id !== 'new')
+      users.unshift({
+        ...user,
+        id: users.length + 1,
+        invitation: 'SENT',
+      })
+      return {
+        ...state,
+        users,
       }
     },
   },
