@@ -1,22 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Layout, Button } from 'antd'
+import { Layout, Button, Menu } from 'antd'
 import { Logo } from 'components'
 import styles from './Header.less'
 
-const AHeader = Layout.Header
-
-const Header = ({ onLogout }) => {
+const Header = ({ onLogout, path, onNavClick }) => {
   return (
-    <AHeader>
+    <Layout.Header>
       <div className={styles.logo}><Logo theme="light" name /></div>
+      <Menu theme={'dark'} mode={'horizontal'} style={{ lineHeight: '64px' }}
+        defaultSelectedKeys={[path]} onClick={onNavClick}
+      >
+        <Menu.Item key={'/overview'}>Overview</Menu.Item>
+        <Menu.Item key={'/setup'}>Setup</Menu.Item>
+      </Menu>
       <div className={styles.logout}><Button icon="logout" shape="circle" size="large" type="danger" onClick={onLogout} /></div>
-    </AHeader>
+    </Layout.Header>
   )
 }
 
 Header.propTypes = {
-  onLogout: PropTypes.func
+  onLogout: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired,
+  onNavClick: PropTypes.func.isRequired,
 }
 
 export default Header

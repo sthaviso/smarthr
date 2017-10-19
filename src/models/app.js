@@ -47,6 +47,9 @@ export default {
         throw (data)
       }
     },
+    * navigate ({ pathname }, { put }) {
+      yield put(routerRedux.push({ pathname }))
+    },
   },
   reducers: {
     updateState (state, { payload }) {

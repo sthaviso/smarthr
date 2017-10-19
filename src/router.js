@@ -14,6 +14,10 @@ const Routers = function ({ history, app }) {
     component: () => import('./routes/error'),
   })
   const routes = [{
+    path: '/overview',
+    models: () => [import('./models/overview')],
+    component: () => import('./routes/overview/'),
+  }, {
     path: '/setup',
     models: () => [import('./models/setup')],
     component: () => import('./routes/setup/'),
@@ -29,7 +33,7 @@ const Routers = function ({ history, app }) {
       <ConnectedRouter history={history}>
         <App>
           <Switch>
-            <Route exact path="/" render={() => (<Redirect to="/setup" />)} />
+            <Route exact path="/" render={() => (<Redirect to="/overview" />)} />
             {
               routes.map(({ path, ...dynamics }, key) => (
                 <Route key={key}

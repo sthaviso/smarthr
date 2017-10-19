@@ -16,9 +16,13 @@ const App = ({ children, location, loading, dispatch }) => {
     dispatch({ type: 'app/logout' })
   }
 
+  function onNavigate ({ key }) {
+    dispatch({ type: 'app/navigate', pathname: key })
+  }
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      {showHeader ? (<Header onLogout={onLogout} />) : ''}
+      {showHeader ? (<Header onLogout={onLogout} path={pathname} onNavClick={onNavigate} />) : ''}
       <Content>
         <Loader fullScreen spinning={loading.global} />
         <Layout style={{ margin: '50px auto', maxWidth: '1600px' }}>
