@@ -18,8 +18,11 @@
     "dva-loading": "^1.0.2",
     "moment": "^2.19.1",
     "moment-duration-format-frequency": "^1.1.0",
+    "numeral": "^2.0.6",
     "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "recharts": "^1.0.0-alpha.6",
+    "victory": "^0.23.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
