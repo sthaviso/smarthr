@@ -43,7 +43,10 @@ const Setup = ({ setup, loading, dispatch }) => {
             />}
         />
         <div className={styles.integrations}>
-          <Tabs defaultActiveKey="api" onChange={callback}>
+          <Tabs defaultActiveKey="templates" onChange={callback}>
+            <TabPane tab="Templates" key="templates">
+              <Integrations type={'template'} />
+            </TabPane>
             <TabPane tab="Api Integration" key="api">
               <Integrations data={apiIntegrations} />
             </TabPane>

@@ -5,7 +5,7 @@ import { utils } from 'utils'
 import { IntegrationCard } from 'components'
 import styles from './Integrations.less'
 
-const Integrations = ({ data = [] }) => {
+const Integrations = ({ data = [], type = 'integration' }) => {
   return (
     <div className={styles.container}>
       {utils.chunk(data, 3, true, { placeholder: true }).map((row, rowIndex) => (
@@ -17,12 +17,14 @@ const Integrations = ({ data = [] }) => {
           ))}
         </Row>
       ))}
+      {!data.length ? <div className={styles.message}>No {type}s found.</div> : '' }
     </div>
   )
 }
 
 Integrations.propTypes = {
   data: PropTypes.array,
+  type: PropTypes.string,
 }
 
 export default Integrations
