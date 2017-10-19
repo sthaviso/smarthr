@@ -72,5 +72,16 @@ export default {
         },
       }
     },
+    saveApiIntegration (state, { integration }) {
+      const apiIntegrations = state.apiIntegrations
+      apiIntegrations.push({
+        ...integration,
+        id: apiIntegrations.length,
+      })
+      return {
+        ...state,
+        apiIntegrations,
+      }
+    },
   },
 }

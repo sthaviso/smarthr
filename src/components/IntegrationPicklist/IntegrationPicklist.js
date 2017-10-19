@@ -5,7 +5,7 @@ import { utils } from 'utils'
 import { integrations } from 'config'
 import styles from './IntegrationPicklist.less'
 
-const IntegrationPicklist = ({ visible,  onClose, onSelect }) => {
+const IntegrationPicklist = ({ visible, onClose, onSelect }) => {
   const data = Object.keys(integrations).map(key => ({ ...integrations[key], key }))
   return (
     <Modal title={'Select Integration Type'} visible={visible} footer={null}

@@ -71,15 +71,6 @@ export async function fetchApiIntegrations (payload) {
     }, {
       id: 5,
       type: 'TRUCKTRACK',
-    }, {
-      id: 6,
-      type: 'REST',
-      frequency: {
-        duration: 1,
-        period: 'days',
-        at: '02:00',
-      },
-      expiry: '03/05/2018',
     }],
   })
 }

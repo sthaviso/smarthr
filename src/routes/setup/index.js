@@ -30,6 +30,10 @@ const Setup = ({ setup, loading, dispatch }) => {
         />
         <RestConfig visible={modals.restConfig}
           onClose={() => { dispatch({ type: 'setup/toggleModal', modals: { restConfig: false } }) }}
+          onSave={(integration) => {
+            dispatch({ type: 'setup/saveApiIntegration', integration })
+            return true
+          }}
         />
         <Title heading="Your Integrations" subheading="Select an API integration or document structure to upload"
           icon={
