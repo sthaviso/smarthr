@@ -109,3 +109,26 @@ export async function fetchDocumentUploads (payload) {
     }],
   })
 }
+
+export async function fetchSmartContracts (payload) {
+  return mockRequest({
+    success: true,
+    contracts: [{
+      id: 1,
+      name: 'Bill Validation Contract',
+      rules: [],
+    }, {
+      id: 2,
+      name: 'Banana Order Contract',
+      rules: [{
+        id: 1,
+        name: 'Temperature Rule',
+        basedOn: 'TT Sensor', // will point to an integration
+      }],
+    }, {
+      id: 3,
+      name: 'Apple Purchase Contract',
+      rules: [],
+    }],
+  })
+}

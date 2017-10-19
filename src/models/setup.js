@@ -1,4 +1,4 @@
-import { fetchUsers, fetchApiIntegrations, fetchDocumentUploads } from 'services/setup'
+import { fetchUsers, fetchApiIntegrations, fetchDocumentUploads, fetchSmartContracts } from 'services/setup'
 
 export default {
   namespace: 'setup',
@@ -10,12 +10,17 @@ export default {
       integrationPicklist: false,
       restConfig: false,
     },
+    contracts: {
+      data: [],
+      selection: {},
+    },
   },
   subscriptions: {
-    setup ({ dispatch }) {
+    init ({ dispatch }) {
       dispatch({ type: 'fetchApiIntegrations' })
       dispatch({ type: 'fetchDocumentUploads' })
       dispatch({ type: 'fetchUsers' })
+      dispatch({ type: 'fetchSmartContracts' })
     },
   },
   effects: {
@@ -39,6 +44,14 @@ export default {
       const data = yield call(fetchUsers)
       if (data.success) {
         yield put({ type: 'users', users: data.users })
+      } else {
+        throw (data)
+      }
+    },
+    * fetchSmartContracts (action, { call, put, select }) {
+      const data = yield call(fetchSmartContracts)
+      if (data.success) {
+        yield put({ type: 'smartContracts', contracts: data.contracts })
       } else {
         throw (data)
       }
@@ -112,6 +125,18 @@ export default {
       return {
         ...state,
         users,
+      }
+    },
+    smartContracts (state, { contracts }) {
+      return {
+        ...state,
+        contracts: {
+          data: contracts,
+          selection: {
+            contract: contracts[0],
+            rule: contracts[0].rules[0],
+          },
+        },
       }
     },
   },

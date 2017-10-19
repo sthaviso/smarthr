@@ -46,6 +46,6 @@ export function mockRequest (response) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(response)
-    }, 100)
+    }, 300)
   })
 }

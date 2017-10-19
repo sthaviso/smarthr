@@ -1,3 +1,4 @@
+import Contracts from './Contracts'
 import Header from './Header'
 import Integrations from './Integrations'
 import IntegrationCard from './IntegrationCard'
@@ -10,6 +11,7 @@ import Users from './Users'
 
 
 export {
+  Contracts,
   Header,
   Integrations,
   IntegrationCard,
