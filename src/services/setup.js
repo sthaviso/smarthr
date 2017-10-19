@@ -124,6 +124,7 @@ export async function fetchSmartContracts (payload) {
         id: 1,
         name: 'Temperature Rule',
         basedOn: 'TT Sensor', // will point to an integration
+        image: '/img/temp_logic.png',
       }],
     }, {
       id: 3,

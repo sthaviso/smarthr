@@ -62,7 +62,10 @@ const Setup = ({ setup, loading, dispatch }) => {
             />}
         />
         <div className={styles.contracts}>
-          <Contracts data={contracts.data} selection={contracts.selection} />
+          <Contracts data={contracts.data} selection={contracts.selection}
+            onContractSelect={contract => dispatch({ type: 'setup/selectContract', contract })}
+            onRuleSelect={console.log}
+          />
         </div>
       </TabPane>
       <TabPane tab="Manage Users" key="users">

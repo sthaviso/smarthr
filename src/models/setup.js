@@ -139,5 +139,17 @@ export default {
         },
       }
     },
+    selectContract (state, { contract }) {
+      return {
+        ...state,
+        contracts: {
+          ...state.contracts,
+          selection: {
+            contract,
+            rule: contract.rules[0],
+          },
+        },
+      }
+    },
   },
 }

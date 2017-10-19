@@ -12,18 +12,20 @@ const menu = (
   </Menu>
 )
 
-const Contracts = ({ data, selection }) => {
+const Contracts = ({ data, selection, onContractSelect, onRuleSelect }) => {
   const contracts = data
   const rules = selection.contract.rules
 
   return (
     <div className={styles.container}>
       <Row gutter={24}>
-        <Col span={6}>
+        <Col span={6} className={styles.col}>
           <h3 className={styles.heading}>Contracts</h3>
           {contracts.map(contract => <Card key={contract.id} className={classnames(styles.tile, {
-              [styles.selected]: contract.id === selection.contract.id
-          })}>
+            [styles.selected]: contract.id === selection.contract.id,
+          })}
+            onClick={() => { onContractSelect(contract) }}
+          >
             <div className={styles.actions}>
               <Dropdown overlay={menu}>
                 <Button icon={'ellipsis'} size={'large'} className={styles.action} />
@@ -31,21 +33,34 @@ const Contracts = ({ data, selection }) => {
             </div>
             {contract.name}
           </Card>)}
+          <Card key={'new-contract'} className={classnames(styles.tile, styles.new)}>
+            Add new contract
+          </Card>
         </Col>
-        <Col span={6}>
+        <Col span={6} className={styles.col}>
           <h3 className={styles.heading}>Rules</h3>
-          {rules.map(rule => <Card key={rule.id} className={styles.tile}>
+          {rules.map(rule => <Card key={rule.id} className={classnames(styles.tile, {
+            [styles.selected]: rule.id === selection.rule.id,
+          })}
+            onClick={() => { onRuleSelect(rule) }}
+          >
             <div className={styles.actions}>
               <Dropdown overlay={menu}>
                 <Button icon={'ellipsis'} size={'large'} className={styles.action} />
               </Dropdown>
             </div>
-            {rule.name}
+            <div>{rule.name}</div>
+            <div className={styles.subtitle}>Based on {rule.basedOn}</div>
           </Card>)}
+          <Card key={'new-rule'} className={classnames(styles.tile, styles.new)}>
+            Add new rule
+          </Card>
         </Col>
         <Col span={12}>
           <h3 className={styles.heading}>Logic</h3>
-          <Card className={styles.tile}>Image Here!!</Card>
+          <Card className={classnames(styles.tile, styles.logic, { [styles.noselection]: !selection.rule })}>
+            {selection.rule ? <img src={selection.rule.image} alt={selection.rule.name} /> : 'No Rule Selected'}
+          </Card>
         </Col>
       </Row>
     </div>
@@ -55,6 +70,8 @@ const Contracts = ({ data, selection }) => {
 Contracts.propTypes = {
   data: PropTypes.array.isRequired,
   selection: PropTypes.object.isRequired,
+  onContractSelect: PropTypes.func.isRequired,
+  onRuleSelect: PropTypes.func.isRequired,
 }
 
 export default Contracts
