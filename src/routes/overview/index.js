@@ -18,7 +18,7 @@ const Setup = ({ overview, loading, dispatch }) => {
   ]
   return (
     <div className={styles.container}>
-      <Title heading={'Farm to Home Groceries'} subheading={'activity over past year'} />
+      <Title heading={'ACME Groceries'} subheading={'Activity This Week'} />
       <Row>
         <Col span={6} offset={1}>
           <NumberCard value={70} text={'Active Contracts'} theme={'green'} />

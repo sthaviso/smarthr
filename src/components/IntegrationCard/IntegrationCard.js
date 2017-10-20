@@ -13,7 +13,7 @@ const integrations = {
       logo: iConfig.SALESFORCE.logo,
       title: `${data.object} Read`,
       subtitle: 'Salesforce Integration',
-      info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)} at ${moment(data.frequency.at, 'HH:mm').format('hh:mm a')}`,
+      info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)}`,
       expiry: true,
     }
   },
@@ -22,7 +22,7 @@ const integrations = {
       logo: iConfig.ORACLE.logo,
       title: `${data.object} Read`,
       subtitle: 'Oracle Integration',
-      info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)} at ${moment(data.frequency.at, 'HH:mm').format('hh:mm a')}`,
+      info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)}`,
       expiry: true,
     }
   },
@@ -31,7 +31,7 @@ const integrations = {
       logo: iConfig.SAP.logo,
       title: `${data.object} Read`,
       subtitle: 'SAP Integration',
-      info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)} at ${moment(data.frequency.at, 'HH:mm').format('hh:mm a')}`,
+      info: `Polls ${moment.duration(data.frequency.duration, data.frequency.period).formatAsFrequency(data.frequency.period)}`,
       expiry: true,
     }
   },

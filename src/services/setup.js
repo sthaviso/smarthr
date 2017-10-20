@@ -41,7 +41,7 @@ export async function fetchApiIntegrations (payload) {
       object: 'Asset',
       frequency: {
         duration: 1.5,
-        period: 'weeks',
+        period: 'hours',
         at: '13:00',
       },
       expiry: '10/31/2017',
@@ -51,7 +51,7 @@ export async function fetchApiIntegrations (payload) {
       object: 'Contract',
       frequency: {
         duration: 1,
-        period: 'days',
+        period: 'hours',
         at: '17:00',
       },
       expiry: '01/03/2018',
@@ -61,7 +61,7 @@ export async function fetchApiIntegrations (payload) {
       object: 'Asset',
       frequency: {
         duration: 1,
-        period: 'days',
+        period: 'hours',
         at: '05:00',
       },
       expiry: '07/15/2018',
@@ -125,6 +125,21 @@ export async function fetchSmartContracts (payload) {
         name: 'Temperature Rule',
         basedOn: 'TT Sensor', // will point to an integration
         image: '/img/temp_logic.png',
+      }, {
+        id: 2,
+        name: 'GPS Location Rule',
+        basedOn: 'Four Kites Truck Track', // will point to an integration
+        image: '',
+      }, {
+        id: 3,
+        name: 'Arrival Estimate Rule',
+        basedOn: 'Four Kites Truck Track', // will point to an integration
+        image: '',
+      }, {
+        id: 4,
+        name: 'Shipment Number Validation Rule',
+        basedOn: 'SAP Asset Read', // will point to an integration
+        image: '',
       }],
     }, {
       id: 3,
