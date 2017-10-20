@@ -9,6 +9,7 @@ export default {
     modals: {
       integrationPicklist: false,
       restConfig: false,
+      templatePicklist: false,
     },
     contracts: {
       data: [],
@@ -149,6 +150,12 @@ export default {
             rule: contract.rules[0],
           },
         },
+      }
+    },
+    saveTemplate (state, { template }) {
+      return {
+        ...state,
+        template,
       }
     },
   },

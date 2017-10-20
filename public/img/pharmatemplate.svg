@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="69px" height="89px" viewBox="0 0 69 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 8</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="26.7753241 5 62.1460758 5 69 10 18 10"></polygon>
+    </defs>
+    <g id="Pivot" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Setup-View-[Template]---Choose" transform="translate(-382.000000, -655.000000)">
+            <g id="Group-16" transform="translate(0.000000, 80.000000)">
+                <g id="Group-15" transform="translate(123.000000, 120.000000)">
+                    <g id="Group-14" transform="translate(122.000000, 25.000000)">
+                        <g id="Group-7" transform="translate(137.000000, 430.000000)">
+                            <g id="Group-8">
+                                <path d="M27.6716307,6 L19.1156897,84 L67.9106626,84 L61.2280865,6 L27.6716307,6 Z" id="Rectangle-7" stroke="#000000" stroke-width="2"></path>
+                                <path d="M27.6716307,6 L19.1156897,84 L67.9106626,84 L61.2280865,6 L27.6716307,6 Z" id="Rectangle-7" stroke="#000000" stroke-width="2"></path>
+                                <g id="Rectangle-7">
+                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                    <path stroke="#000000" stroke-width="2" d="M27.0402228,6 L21.7750283,9 L65.9324385,9 L61.8200839,6 L27.0402228,6 Z"></path>
+                                </g>
+                                <path d="M27.125314,1 L20.8572254,6 L66.6213325,6 L61.7256723,1 L27.125314,1 Z" id="Rectangle-7" stroke="#000000" stroke-width="2" transform="translate(43.500000, 3.500000) scale(1, -1) translate(-43.500000, -3.500000) "></path>
+                                <rect id="Rectangle-3" fill="#88ECF9" x="1" y="38" width="34" height="51"></rect>
+                                <rect id="Rectangle-4" fill="#FFFFFF" x="13" y="51" width="22" height="28"></rect>
+                                <rect id="Rectangle-3" fill="#88ECF9" x="0" y="30" width="38" height="9"></rect>
+                                <rect id="Rectangle-3" stroke="#000000" stroke-width="2" x="4" y="28" width="36" height="7"></rect>
+                                <rect id="Rectangle-3" stroke="#000000" stroke-width="2" x="6" y="35" width="32" height="49"></rect>
+                                <rect id="Rectangle-4" stroke="#000000" stroke-width="2" x="17" y="49" width="20" height="26"></rect>
+                                <text id="℞" font-family="LucidaGrande-Bold, Lucida Grande" font-size="15" font-weight="bold" fill="#88ECF9">
+                                    <tspan x="16" y="64">℞</tspan>
+                                </text>
+                                <text id="℞" font-family="LucidaGrande-Bold, Lucida Grande" font-size="15" font-weight="bold" fill="#000000">
+                                    <tspan x="18" y="62">℞</tspan>
+                                </text>
+                                <rect id="Rectangle-6" stroke="#F34673" stroke-width="2" x="19" y="68" width="7" height="1"></rect>
+                                <rect id="Rectangle-6" stroke="#F34673" stroke-width="2" x="19" y="71" width="11" height="1"></rect>
+                                <rect id="Rectangle-6" stroke="#000000" stroke-width="2" x="21" y="67" width="7" height="1"></rect>
+                                <rect id="Rectangle-6" stroke="#000000" stroke-width="2" x="21" y="70" width="11" height="1"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

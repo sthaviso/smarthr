@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { Tabs, Button } from 'antd'
-import { Users, Title, Integrations, IntegrationPicklist, RestConfig, Contracts } from 'components'
+import { Users, Title, Integrations, IntegrationPicklist, RestConfig, Contracts, TemplatePicklist } from 'components'
 import styles from './index.less'
 
 const TabPane = Tabs.TabPane
 
 const Setup = ({ setup, loading, dispatch }) => {
-  const { users, apiIntegrations, documentUploads, modals, contracts } = setup
+  const { users, apiIntegrations, documentUploads, modals, contracts, template } = setup
 
   function callback (key) {
     console.log(key)
@@ -35,17 +35,38 @@ const Setup = ({ setup, loading, dispatch }) => {
             return true
           }}
         />
+        <TemplatePicklist visible={modals.templatePicklist}
+          onClose={() => { dispatch({ type: 'setup/toggleModal', modals: { templatePicklist: false } }) }}
+          onSelect={(t) => {
+            dispatch({ type: 'setup/saveTemplate', template: t })
+            return true
+          }}
+        />
         <Title heading="Your Integrations" subheading="Select an API integration or document structure to upload"
           icon={
             <Button icon={'plus'} type={'primary'} onClick={() => {
-              dispatch({ type: 'setup/toggleModal', modals: { integrationPicklist: true } })
+              dispatch({ type: 'setup/toggleModal',
+                modals: {
+                  integrationPicklist: !!template,
+                  templatePicklist: !template,
+                },
+              })
             }}
             />}
         />
         <div className={styles.integrations}>
           <Tabs defaultActiveKey="templates" onChange={callback}>
             <TabPane tab="Templates" key="templates">
-              <Integrations type={'template'} />
+              <Integrations type={'template'} data={template ? template.integrations : []}
+                onSelect={(integration) => {
+                  if (integration.type === 'REST') {
+                    dispatch({ type: 'setup/toggleModal', modals: { restConfig: true } })
+                    return true
+                  }
+
+                  return false
+                }}
+              />
             </TabPane>
             <TabPane tab="Api Integration" key="api">
               <Integrations data={apiIntegrations} />

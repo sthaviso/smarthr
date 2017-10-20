@@ -7,6 +7,8 @@ import Loader from './Loader'
 import Logo from './Logo'
 import NumberCard from './NumberCard'
 import RestConfig from './RestConfig'
+import TemplateCard from './TemplateCard'
+import TemplatePicklist from './TemplatePicklist'
 import Title from './Title'
 import Users from './Users'
 
@@ -21,6 +23,8 @@ export {
   Logo,
   NumberCard,
   RestConfig,
+  TemplateCard,
+  TemplatePicklist,
   Title,
   Users,
 }

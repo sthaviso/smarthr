@@ -2,17 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col } from 'antd'
 import { utils } from 'utils'
-import { IntegrationCard } from 'components'
+import { IntegrationCard, TemplateCard } from 'components'
 import styles from './Integrations.less'
 
-const Integrations = ({ data = [], type = 'integration' }) => {
+const Integrations = ({ data = [], type = 'integration', onSelect = () => {} }) => {
   return (
     <div className={styles.container}>
       {utils.chunk(data, 3, true, { placeholder: true }).map((row, rowIndex) => (
         <Row type="flex" justify="space-around" align="middle" key={rowIndex}>
           {row.map((col, colIndex) => (
             <Col span={5} key={`${rowIndex}_${colIndex}`}>
-              { !col.placeholder ? <IntegrationCard data={col} /> : '' }
+              { (() => {
+                if (!col.placeholder) {
+                  if (type === 'template') {
+                    return <TemplateCard data={col} onSelect={onSelect} />
+                  }
+                  return <IntegrationCard data={col} />
+                }
+                return ''
+              })()}
             </Col>
           ))}
         </Row>
@@ -25,6 +33,7 @@ const Integrations = ({ data = [], type = 'integration' }) => {
 Integrations.propTypes = {
   data: PropTypes.array,
   type: PropTypes.string,
+  onSelect: PropTypes.func,
 }
 
 export default Integrations
