@@ -59,7 +59,7 @@ const Contracts = ({ data, selection, onContractSelect, onRuleSelect }) => {
         <Col span={12}>
           <h3 className={styles.heading}>Logic</h3>
           <Card className={classnames(styles.tile, styles.logic, { [styles.noselection]: !selection.rule })}>
-            {selection.rule ? <img src={selection.rule.image} alt={selection.rule.name} /> : 'No Rule Selected'}
+            {selection.rule ? <img src={selection.rule.image} alt={selection.rule.name} className={styles.logicimg} /> : 'No Rule Selected'}
           </Card>
         </Col>
       </Row>

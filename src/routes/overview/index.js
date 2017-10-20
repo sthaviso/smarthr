@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { Row, Col } from 'antd'
 import { Title, NumberCard } from 'components'
-import { VictoryArea } from 'victory'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import styles from './index.less'
 
 const Setup = ({ overview, loading, dispatch }) => {
@@ -34,15 +33,17 @@ const Setup = ({ overview, loading, dispatch }) => {
       <Row>
         <Col span={22} offset={1} className={styles.chartcontainer}>
           <h2 className={styles.title}>Transaction History</h2>
-          <AreaChart width={1200} height={400} data={data}
-            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-          >
-            <XAxis dataKey="name" />
-            <YAxis ticks={[500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500]} />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Tooltip />
-            <Area type="monotone" dataKey="value" stroke="#88ECF9" fill="#88ECF9" />
-          </AreaChart>
+          <ResponsiveContainer width={'100%'} height={400}>
+            <AreaChart data={data}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            >
+              <XAxis dataKey="name" />
+              <YAxis ticks={[500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500]} />
+              <CartesianGrid strokeDasharray="3 3" />
+              <Tooltip />
+              <Area type="monotone" dataKey="value" stroke="#88ECF9" fill="#88ECF9" />
+            </AreaChart>
+          </ResponsiveContainer>
         </Col>
       </Row>
     </div>

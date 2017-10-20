@@ -1,9 +1,9 @@
-### SupplyLinc
+### Slync
 
 #### Setup
 ```
-mkdir supplylinc
-cd supplylinc
+mkdir slync
+cd slync
 git clone git@gitlab.com:supplylinc/demo.git
 cd demo
 npm install

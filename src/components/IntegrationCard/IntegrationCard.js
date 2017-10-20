@@ -90,7 +90,7 @@ const IntegrationCard = ({ data }) => {
         </Dropdown>
       </div>
       <div className={styles.logo}>
-        <img src={integration.logo} alt={integration.subtitle} />
+        <img src={integration.logo} alt={integration.title} />
       </div>
       <h3>{integration.title}</h3>
       <p>{integration.subtitle}</p>

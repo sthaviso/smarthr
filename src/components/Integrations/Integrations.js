@@ -11,13 +11,13 @@ const Integrations = ({ data = [], type = 'integration' }) => {
       {utils.chunk(data, 3, true, { placeholder: true }).map((row, rowIndex) => (
         <Row type="flex" justify="space-around" align="middle" key={rowIndex}>
           {row.map((col, colIndex) => (
-            <Col span={5} key={`${rowIndex}_${colIndex}`}>
+            <Col span={6} key={`${rowIndex}_${colIndex}`}>
               { !col.placeholder ? <IntegrationCard data={col} /> : '' }
             </Col>
           ))}
         </Row>
       ))}
-      {!data.length ? <div className={styles.message}>No {type}s found.</div> : '' }
+      {!data.length ? <div className={styles.messagecontainer}><div className={styles.message}>No {type}s found.</div></div> : '' }
     </div>
   )
 }

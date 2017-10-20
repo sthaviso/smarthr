@@ -9,7 +9,7 @@ const Header = ({ onLogout, path, onNavClick }) => {
     <Layout.Header>
       <div className={styles.logo}><Logo theme="light" name /></div>
       <Menu theme={'dark'} mode={'horizontal'} style={{ lineHeight: '64px' }}
-        defaultSelectedKeys={[path]} onClick={onNavClick}
+        defaultSelectedKeys={[path]} onClick={onNavClick} className={styles.menu}
       >
         <Menu.Item key={'/overview'}>Overview</Menu.Item>
         <Menu.Item key={'/setup'}>Setup</Menu.Item>

@@ -32,7 +32,7 @@ const INTEGRATIONS = {
 }
 
 module.exports = {
-  name: 'SupplyLinc',
+  name: 'Slync',
   api: {
     userLogin: `${APIV1}/user/login`,
   },

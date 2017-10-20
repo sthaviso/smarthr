@@ -29,7 +29,7 @@ const App = ({ children, location, loading, dispatch }) => {
           <Content>{children}</Content>
         </Layout>
       </Content>
-      <Footer style={{ textAlign: 'center', bottom: '0px', background: '#f7f7f7' }}>SupplyLinc Inc., &copy; 2017</Footer>
+      <Footer style={{ textAlign: 'center', bottom: '0px', background: '#f7f7f7' }}>Slync Inc., &copy; 2017</Footer>
     </Layout>
   )
 }
