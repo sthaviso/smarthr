@@ -12,6 +12,8 @@ const Header = ({ onLogout, path, onNavClick }) => {
         defaultSelectedKeys={[path]} onClick={onNavClick} className={styles.menu}
       >
         <Menu.Item key={'/overview'}>Overview</Menu.Item>
+        <Menu.Item key={'/transactions'}>Transactions</Menu.Item>
+        <Menu.Item key={'/smartcontracts'}>Smart Contracts</Menu.Item>
         <Menu.Item key={'/setup'}>Setup</Menu.Item>
       </Menu>
       <div className={styles.logout}><Button icon="logout" shape="circle" size="large" type="danger" onClick={onLogout} /></div>

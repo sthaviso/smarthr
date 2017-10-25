@@ -14,8 +14,7 @@ const menu = (
 
 const Contracts = ({ data, selection, onContractSelect, onRuleSelect }) => {
   const contracts = data
-  const rules = selection.contract.rules
-
+  const rules = selection.contract ? selection.contract.rules : []
   return (
     <div className={styles.container}>
       <Row gutter={24}>

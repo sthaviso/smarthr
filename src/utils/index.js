@@ -6,7 +6,7 @@ const chunkArray = (arr, size, withPadding, padWith) => {
   for (let index = 0; index < arr.length; index += size) {
     let chunk = arr.slice(index, index + size)
     if (chunk.length < size && withPadding) {
-      while (chunk.length < 3) {
+      while (chunk.length < size) {
         chunk.push(padWith)
       }
     }

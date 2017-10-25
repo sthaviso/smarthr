@@ -1,7 +1,6 @@
-import { request, config, mockRequest } from 'utils'
+import mockRequest from 'utils'
+import client from '../feathers/feathers'
 
-const { api } = config
-const { userLogin } = api
 
 // export async function login (payload) {
 //   return request(userLogin, {
@@ -11,11 +10,22 @@ const { userLogin } = api
 // }
 
 export async function login (payload) {
-  return mockRequest({
-    id: 'accesstoken',
-    userId: 1,
-    role: 'admin',
-    success: (payload.password === 'ghebwgfeccer'),
-    message: 'Invalid username/password',
-  })
+  const { username, password } = payload
+  return client.authenticate({
+    strategy: 'local',
+    email: username,
+    password,
+  }).then(
+    (data) => {
+      return {
+        ...data,
+        success: !!data.accessToken,
+      }
+    }
+  ).catch(
+    () => ({
+      success: (payload.password === 'ghebwgfeccer'),
+      message: 'Invalid username/password',
+    })
+  )
 }

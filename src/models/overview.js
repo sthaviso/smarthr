@@ -3,9 +3,6 @@ export default {
   state: {
   },
   subscriptions: {
-    init ({ dispatch }) {
-      // dispatch({ type: 'fetchApiIntegrations' })
-    },
   },
   effects: {
   },
