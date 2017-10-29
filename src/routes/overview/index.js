@@ -35,7 +35,7 @@ const Setup = ({ overview, loading, dispatch }) => {
       </Row>
       <Row>
         <Col span={23} className={styles.chartcontainer}>
-          <h2 className={styles.title}>Transaction History</h2>
+          <h2 className={styles.title}>Events processed by Slync</h2>
           <ResponsiveContainer width={'100%'} height={400}>
             <AreaChart data={data}
               margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
