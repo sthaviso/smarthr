@@ -36,6 +36,11 @@ const Routers = function ({ history, app }) {
     models: () => [import('./models/smartcontracts')],
     component: () => import('./routes/smartcontracts/'),
   },
+  {
+    path: '/integrations',
+    models: () => [import('./models/integrations')],
+    component: () => import('./routes/integrations/'),
+  },
   ]
 
   return (
