@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { Row, Col } from 'antd'
-import { Title, NumberCard } from 'components'
+import { NumberCard, LeftTitle, ContractsCard } from 'components'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import styles from './index.less'
 
@@ -16,22 +16,25 @@ const Setup = ({ overview, loading, dispatch }) => {
     { name: 'Thursday', value: 4000 },
     { name: 'Friday', value: 1500 },
   ]
+  const contracts = [
+    { name: 'Banana purchase contract' },
+    { name: 'Apple contract' },
+    { name: 'Plastic shelving contract' },
+    { name: 'Cleaning supplies contract' },
+  ]
   return (
     <div className={styles.container}>
-      <Title heading={'ACME Groceries'} subheading={'Activity This Week'} />
+      <LeftTitle heading={'Farm To Market Groceries'} hideSearch />
       <Row>
-        <Col span={6} offset={1}>
-          <NumberCard value={70} text={'Active Contracts'} theme={'green'} />
+        <Col span={11}>
+          <ContractsCard value={70} text={'Active Contracts'} contracts={contracts} />
         </Col>
-        <Col span={6} offset={2}>
+        <Col span={11} offset={1}>
           <NumberCard value={150000} text={'Transactions'} />
-        </Col>
-        <Col span={6} offset={2}>
-          <NumberCard value={85} text={'Partners'} />
         </Col>
       </Row>
       <Row>
-        <Col span={22} offset={1} className={styles.chartcontainer}>
+        <Col span={23} className={styles.chartcontainer}>
           <h2 className={styles.title}>Transaction History</h2>
           <ResponsiveContainer width={'100%'} height={400}>
             <AreaChart data={data}
