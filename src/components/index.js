@@ -11,7 +11,7 @@ import TemplateCard from './TemplateCard'
 import TemplatePicklist from './TemplatePicklist'
 import Title from './Title'
 import Users from './Users'
-
+import LeftTitle from './LeftTitle'
 
 export {
   Contracts,
@@ -27,4 +27,5 @@ export {
   TemplatePicklist,
   Title,
   Users,
+  LeftTitle,
 }
