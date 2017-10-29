@@ -24,7 +24,7 @@ export async function login (payload) {
     }
   ).catch(
     () => ({
-      success: (payload.password === 'ghebwgfeccer'),
+      success: (payload.password === 'welc0me1'),
       message: 'Invalid username/password',
     })
   )
