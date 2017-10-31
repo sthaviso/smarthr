@@ -14,6 +14,7 @@ import Users from './Users'
 import LeftTitle from './LeftTitle'
 import ContractsCard from './ContractsCard'
 import ContractsLI from './ContractsLI'
+import ExceptionsCard from './ExceptionsCard'
 
 export {
   Contracts,
@@ -32,4 +33,5 @@ export {
   LeftTitle,
   ContractsCard,
   ContractsLI,
+  ExceptionsCard,
 }

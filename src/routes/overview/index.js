@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import { Row, Col } from 'antd'
-import { NumberCard, LeftTitle, ContractsCard } from 'components'
+import { Row, Col, Card } from 'antd'
+import { LeftTitle, ContractsCard, ExceptionsCard } from 'components'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import styles from './index.less'
 
@@ -22,15 +22,16 @@ const Setup = ({ overview, loading, dispatch }) => {
     { name: 'Plastic shelving contract' },
     { name: 'Cleaning supplies contract' },
   ]
+
   return (
     <div className={styles.container}>
       <LeftTitle heading={'Farm To Market Groceries'} hideSearch />
       <Row>
         <Col span={11}>
-          <ContractsCard value={70} text={'Active Contracts'} contracts={contracts} />
+          <ContractsCard value={70} text={'Active Smart Contracts'} contracts={contracts} />
         </Col>
         <Col span={11} offset={1}>
-          <NumberCard value={150000} text={'Transactions'} />
+          <ExceptionsCard />
         </Col>
       </Row>
       <Row>
