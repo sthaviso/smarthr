@@ -11,7 +11,7 @@ const data = [{ name: 'Orders & Contracts', value: 400, display: '400/10k' }, { 
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#CD0000']
 
-const ExceptionsCard = () => {
+const ExceptionsCard = ({ activeIndex, onPieEnter }) => {
   return (
     <Card className={styles.container}>
       <div className={styles.content}>
@@ -20,16 +20,22 @@ const ExceptionsCard = () => {
         </div>
         <div className={styles.body}>
           <div className={styles.legend}>
-            {data.map((entry, index) => <div key={entry.name} className={styles.legendItem} style={index === 1 ? { backgroundColor: COLORS[index % COLORS.length], borderRadius: 7 } : {}}>
-              <div className={styles.circle} style={{ backgroundColor: index === 1 ? 'white' : COLORS[index % COLORS.length] }} />
-              <div className={styles.legendLabel} style={index === 1 ? { color: 'white' } : {}}>{entry.name}</div>
-            </div>)}
+            {data.map((entry, index) =>
+              <div
+                key={entry.name}
+                className={styles.legendItem}
+                style={index === activeIndex ? { backgroundColor: COLORS[index % COLORS.length], borderRadius: 7 } : {}}
+                onClick={() => (onPieEnter(null, index))}
+              >
+                <div className={styles.circle} style={{ backgroundColor: index === activeIndex ? 'white' : COLORS[index % COLORS.length] }} />
+                <div className={styles.legendLabel} style={index === activeIndex ? { color: 'white' } : {}}>{entry.name}</div>
+              </div>)}
           </div>
           <div className={styles.chart}>
             <ResponsiveContainer width={'100%'} height={'100%'}>
               <PieChart>
                 <Pie
-                  activeIndex={1}
+                  activeIndex={activeIndex}
                   activeShape={({ cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill, payload }) => {
                     return (
                       <g>
@@ -60,7 +66,7 @@ const ExceptionsCard = () => {
                   innerRadius={'85%'}
                   outerRadius={'90%'}
                   fill="#8884d8"
-                  onMouseEnter={() => {}}
+                  onMouseEnter={onPieEnter}
                   dataKey="value"
                 >
                   {
@@ -74,6 +80,11 @@ const ExceptionsCard = () => {
       </div>
     </Card>
   )
+}
+
+ExceptionsCard.propTypes = {
+  activeIndex: PropTypes.number,
+  onPieEnter: PropTypes.func,
 }
 
 export default ExceptionsCard

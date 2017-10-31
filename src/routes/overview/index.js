@@ -23,6 +23,12 @@ const Setup = ({ overview, loading, dispatch }) => {
     { name: 'Cleaning supplies contract' },
   ]
 
+  const { exceptions } = overview
+
+  const onPieEnter = (data, activeIndex) => {
+    dispatch({ type: 'overview/exceptionsIndex', activeIndex })
+  }
+
   return (
     <div className={styles.container}>
       <LeftTitle heading={'Farm To Market Groceries'} hideSearch />
@@ -31,7 +37,7 @@ const Setup = ({ overview, loading, dispatch }) => {
           <ContractsCard value={70} text={'Active Smart Contracts'} contracts={contracts} />
         </Col>
         <Col span={11} offset={1}>
-          <ExceptionsCard />
+          <ExceptionsCard activeIndex={exceptions.activeIndex} onPieEnter={onPieEnter} />
         </Col>
       </Row>
       <Row>
