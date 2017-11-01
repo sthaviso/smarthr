@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import { Integrations, LeftTitle } from 'components'
+import { Events, LeftTitle } from 'components'
 // import LeftTitle from '../../components/LeftTitle'
 import styles from './index.less'
 
@@ -9,8 +9,8 @@ const Transactions = ({ transactions, loading, dispatch }) => {
   const { apiIntegrations } = transactions
   return (
     <div className={styles.container}>
-      <LeftTitle heading={'Transactions'} />
-      <Integrations data={apiIntegrations} />
+      <LeftTitle heading={'Events'} />
+      <Events />
     </div>
   )
 }

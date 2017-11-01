@@ -19,18 +19,18 @@ const ExceptionsCard = ({ activeIndex, onPieEnter }) => {
           Exceptions by integration
         </div>
         <div className={styles.body}>
-          <div className={styles.legend}>
+          <ul className={styles.legend}>
             {data.map((entry, index) =>
-              <div
+              <li
                 key={entry.name}
-                className={styles.legendItem}
-                style={index === activeIndex ? { backgroundColor: COLORS[index % COLORS.length], borderRadius: 7 } : {}}
                 onClick={() => (onPieEnter(null, index))}
               >
-                <div className={styles.circle} style={{ backgroundColor: index === activeIndex ? 'white' : COLORS[index % COLORS.length] }} />
-                <div className={styles.legendLabel} style={index === activeIndex ? { color: 'white' } : {}}>{entry.name}</div>
-              </div>)}
-          </div>
+                <span style={index === activeIndex ? { display: 'inline-block', padding: '5px', backgroundColor: COLORS[index % COLORS.length], borderRadius: 7 } : { display: 'inline-block', padding: '5px' }}>
+                  <span className={styles.circle} style={{ backgroundColor: index === activeIndex ? 'white' : COLORS[index % COLORS.length] }} />
+                  <span className={styles.legendLabel} style={index === activeIndex ? { color: 'white' } : {}}>{entry.name}</span>
+                </span>
+              </li>)}
+          </ul>
           <div className={styles.chart}>
             <ResponsiveContainer width={'100%'} height={'100%'}>
               <PieChart>

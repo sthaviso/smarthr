@@ -22,7 +22,7 @@ const LeftTitle = ({ heading, subheading, icon, hideSearch = false }) => {
         '' :
         <Search
           placeholder="Search"
-          style={{ width: 200, marginBottom: 20, marginTop: 20 }}
+          className={styles.search}
           onSearch={value => console.log(value)}
         />
     }

@@ -15,6 +15,12 @@ import LeftTitle from './LeftTitle'
 import ContractsCard from './ContractsCard'
 import ContractsLI from './ContractsLI'
 import ExceptionsCard from './ExceptionsCard'
+import Events from './Events'
+import EventsSources from './EventsSources'
+import EvtListView from './EvtListView'
+import EvtSummary from './EvtSummary'
+import EvtSummaryHeader from './EvtSummaryHeader'
+import EvtSummaryContent from './EvtSummaryContent'
 
 export {
   Contracts,
@@ -34,4 +40,10 @@ export {
   ContractsCard,
   ContractsLI,
   ExceptionsCard,
+  Events,
+  EventsSources,
+  EvtListView,
+  EvtSummary,
+  EvtSummaryHeader,
+  EvtSummaryContent,
 }
