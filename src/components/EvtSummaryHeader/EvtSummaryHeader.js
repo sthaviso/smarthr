@@ -8,7 +8,7 @@ const EvtSummaryHeader = () => {
       <Row>
         <Col span={4}>SENSOR</Col>
         <Col span={8}>ASSOCIATED USER </Col>
-        <Col span={8}>TRANSACTIONS/EXCEPTIONS</Col>
+        <Col span={8}>TRANSACTIONS / EXCEPTIONS</Col>
         <Col span={4} />
       </Row>
     </div>

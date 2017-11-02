@@ -1,13 +1,20 @@
 import React from 'react'
 import { Card } from 'antd'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import styles from './EventsSources.less'
 
-const EventsSources = ({ data }) => {
+const EventsSources = ({ data, currentSrc, onSrcSelect }) => {
   return (
     <div id="eventsSrc" className={styles.container}>
       {data.map(entry => (
-        <Card className={styles.card} key={entry.name} bodyStyle={{ padding: '10px' }}>
+        <Card className={classnames(styles.card, {
+          [styles.selected]: currentSrc.name === entry.name,
+        })}
+          key={entry.name}
+          bodyStyle={{ padding: '10px' }}
+          onClick={() => { onSrcSelect(entry) }}
+        >
           <div className={styles.cardItem}>
             <div className={styles.imageContainer}>
               <img className={styles.image} src={entry.logo} alt={entry.name} />
@@ -26,6 +33,8 @@ const EventsSources = ({ data }) => {
 
 EventsSources.propTypes = {
   data: PropTypes.array.isRequired,
+  onSrcSelect: PropTypes.func.isRequired,
+  currentSrc: PropTypes.object.isRequired,
 }
 
 export default EventsSources

@@ -4,6 +4,8 @@ export default {
   namespace: 'transactions',
   state: {
     apiIntegrations: [],
+    source: {},
+    currentLI: {},
   },
   subscriptions: {
     init ({ dispatch }) {
@@ -25,6 +27,24 @@ export default {
       return {
         ...state,
         apiIntegrations,
+      }
+    },
+    selectSrc (state, { src }) {
+      return {
+        ...state,
+        source: src,
+      }
+    },
+    selectListItem (state, { currLI }) {
+      if (!currLI || currLI.id === state.currentLI.id) {
+        return {
+          ...state,
+          currentLI: {},
+        }
+      }
+      return {
+        ...state,
+        currentLI: currLI,
       }
     },
   },

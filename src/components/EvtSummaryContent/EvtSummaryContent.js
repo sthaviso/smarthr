@@ -11,26 +11,36 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `
 
-const EvtSummaryContent = ({ data }) => {
-  return (
-    <Collapse accordion>
-      {data.map(entry => (
-        <Panel
-          className="Panel"
-          header={
-            <EvtSummary {...entry} />
-          }
-          key={entry.id}
-        >
-          <p>{text}</p>
-        </Panel>
-      ))}
-    </Collapse>
-  )
+const EvtSummaryContent = ({ data, onListItemClick, currentLI }) => {
+  if (data) {
+    return (
+      <Collapse accordion
+        onChange={(activeKey) => {
+          onListItemClick(data[activeKey])
+        }}
+      >
+        {data.map((entry, index) => (
+          <Panel
+            className="Panel"
+            header={
+              <EvtSummary {...entry} currentLI={currentLI} />
+            }
+            key={index}
+          >
+            <p>{text}</p>
+          </Panel>
+        ))}
+      </Collapse>
+    )
+  }
+
+  return (<div />)
 }
 
 EvtSummaryContent.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array,
+  onListItemClick: PropTypes.func.isRequired,
+  currentLI: PropTypes.object.isRequired,
 }
 
 export default EvtSummaryContent
