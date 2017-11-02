@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'dva'
-import { Row, Col, Card } from 'antd'
+import { Row, Col } from 'antd'
 import { LeftTitle, ContractsCard, ExceptionsCard } from 'components'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import styles from './index.less'
