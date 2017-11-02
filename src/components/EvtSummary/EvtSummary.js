@@ -25,7 +25,10 @@ const EvtSummary = ({ id, name, transactions, exceptions, currentLI }) => {
         <Col span={8} className={styles.txnSum}><span className={styles.txn}>{transactions}</span>&nbsp;/&nbsp;<span className={styles.exceptions}>{exceptions}</span></Col>
         <Col span={4} className={styles.actions}>
           <ShrinkIcon open={id === currentLI.id} />
-          <Icon type="file-text" className={styles.icon} />
+          <Icon type="file-text"
+            className={styles.icon}
+            onClick={(event) => { event.stopPropagation() }}
+          />
         </Col>
       </Row>
     </div>
