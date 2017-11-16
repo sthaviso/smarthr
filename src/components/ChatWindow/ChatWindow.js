@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ChatMessage } from 'components'
+import { Messages } from 'components'
 import { Input, Button, Form } from 'antd'
-import classnames from 'classnames'
 import styles from './ChatWindow.less'
 
 const { TextArea } = Input
@@ -31,14 +30,7 @@ const ChatWindow = ({
   if (messages.length > 0) {
     return (
       <div className={styles.container}>
-        <div className={classnames(styles.messages, 'ant-list-split')}>
-          <div className={classnames(styles.msgHeader, 'ant-list-header')}>
-            {selectedTicket.createdBy.name}
-          </div>
-          {messages.map(message => (
-            <ChatMessage message={message} key={message.id} />
-          ))}
-        </div>
+        <Messages selectedTicket={selectedTicket} messages={messages} />
         <div className={styles.inputDiv}>
           <Form layout="inline" className={styles.form} onSubmit={handleSubmit}>
             <FormItem className={styles.inputBox} wrapperCol={{ span: 24 }}>

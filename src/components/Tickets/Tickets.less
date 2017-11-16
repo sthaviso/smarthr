@@ -14,10 +14,6 @@
   }
 }
 
-.actionButton:hover {
-  background-color: #f2f3f4;
-}
-
 .row {
   height: 70px;
 }
@@ -28,4 +24,25 @@
 
 .selectedTicket {
   background-color: #f2f3f4;
+}
+
+.meta {
+  width: 100%;
+}
+
+.listitem {
+  :global .ant-list-item-action {
+    margin-left: 20px;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeStamp {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.45);
+  padding-right: 5px;
 }

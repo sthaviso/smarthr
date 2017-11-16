@@ -1,9 +1,14 @@
 import React from 'react'
 import { List, Avatar, Dropdown, Icon, Menu } from 'antd'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import TimeAgo from 'react-timeago'
+import engStrings from 'react-timeago/lib/language-strings/en-short.js'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 import styles from './Tickets.less'
 
 const Tickets = ({ tickets, selectedTicket, onSelectTicket }) => {
+  const formatter = buildFormatter(engStrings)
   const menu = (
     <Menu>
       <Menu.Item>Close</Menu.Item>
@@ -22,12 +27,27 @@ const Tickets = ({ tickets, selectedTicket, onSelectTicket }) => {
             </Dropdown>]}
             key={item.id}
             onClick={() => onSelectTicket(item)}
-            className={item.id === selectedTicket.id ? styles.selectedTicket : ''}
+            className={classnames(styles.listitem, item.id === selectedTicket.id ? styles.selectedTicket : '')}
           >
             <List.Item.Meta
-              avatar={<Avatar src={item.createdBy.avatar} />}
-              title={item.createdBy.name}
-              description={item.text}
+              avatar={<Avatar src={item.createdBy.avatar} size="large" />}
+              title={
+                <div className={styles.title}>
+                  <div>{item.createdBy.name}</div>
+                  <div className={styles.timeStamp}>
+                    <TimeAgo date={item.timestamp} formatter={formatter} />
+                  </div>
+                </div>
+              }
+              description={
+                <div className={styles.title}>
+                  <div>{item.text}</div>
+                  <div>
+                    <Avatar size="small">{item.unreadMessagesCount}</Avatar>
+                  </div>
+                </div>
+              }
+              className={styles.meta}
             />
           </List.Item>
         )}

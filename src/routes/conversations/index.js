@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'dva'
 import { Row, Col } from 'antd'
-import { Tickets, Messages } from 'components'
+import { Tickets, ChatWindow } from 'components'
 import PropTypes from 'prop-types'
 import styles from './index.less'
 
@@ -27,7 +27,7 @@ const Setup = ({ conversations, dispatch, app }) => {
           />
         </Col>
         <Col span={14}>
-          <Messages
+          <ChatWindow
             messages={messagesWithUser}
             selectedTicket={selectedTicket}
             onSubmit={(values) => {

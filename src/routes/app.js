@@ -29,7 +29,6 @@ const App = ({ children, location, loading, dispatch, app }) => {
     <Layout style={{ minHeight: '100vh', flexDirection: 'row' }}>
       {showHeader ? (<Sider onLogout={onLogout} path={pathname} onNavClick={onNavigate} collapsed={collapsed} onCollapse={onCollapse} />) : ''}
       <Layout>
-        <Loader fullScreen spinning={loading.global} />
         <Content>{children}</Content>
       </Layout>
     </Layout>
