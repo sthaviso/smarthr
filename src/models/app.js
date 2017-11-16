@@ -9,6 +9,8 @@ export default {
     auth: {},
     locationPathname: '',
     locationQuery: {},
+    collapsed: false,
+    user: {},
   },
   subscriptions: {
     setupHistory ({ dispatch, history }) {
@@ -58,16 +60,23 @@ export default {
         ...payload,
       }
     },
-    loggedIn (state, { auth }) {
+    loggedIn (state, { auth, user }) {
       return {
         ...state,
         auth,
+        user,
       }
     },
     loggedOut (state) {
       return {
         ...state,
         auth: {},
+      }
+    },
+    collapse (state) {
+      return {
+        ...state,
+        collapsed: !state.collapsed,
       }
     },
   },

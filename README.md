@@ -1,9 +1,9 @@
-### Slync
+### ESS
 
 #### Setup
 ```
-mkdir slync
-cd slync
+mkdir ESS
+cd ESS
 git clone git@gitlab.com:supplylinc/demo.git
 cd demo
 npm install

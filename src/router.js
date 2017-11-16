@@ -14,33 +14,21 @@ const Routers = function ({ history, app }) {
     component: () => import('./routes/error'),
   })
   const routes = [{
-    path: '/overview',
-    models: () => [import('./models/overview')],
-    component: () => import('./routes/overview/'),
-  }, {
-    path: '/setup',
-    models: () => [import('./models/setup')],
-    component: () => import('./routes/setup/'),
-  }, {
+    path: '/conversations',
+    models: () => [import('./models/conversations')],
+    component: () => import('./routes/conversations/'),
+  },
+  {
     path: '/login',
     models: () => [import('./models/login')],
     component: () => import('./routes/login/'),
   },
   {
-    path: '/transactions',
-    models: () => [import('./models/transactions')],
-    component: () => import('./routes/transactions/'),
+    path: '/users',
+    models: () => [import('./models/users')],
+    component: () => import('./routes/users/'),
   },
-  {
-    path: '/smartcontracts',
-    models: () => [import('./models/smartcontracts')],
-    component: () => import('./routes/smartcontracts/'),
-  },
-  {
-    path: '/integrations',
-    models: () => [import('./models/integrations')],
-    component: () => import('./routes/integrations/'),
-  },
+
   ]
 
   return (
@@ -48,7 +36,7 @@ const Routers = function ({ history, app }) {
       <ConnectedRouter history={history}>
         <App>
           <Switch>
-            <Route exact path="/" render={() => (<Redirect to="/overview" />)} />
+            <Route exact path="/" render={() => (<Redirect to="/conversations" />)} />
             {
               routes.map(({ path, ...dynamics }, key) => (
                 <Route key={key}

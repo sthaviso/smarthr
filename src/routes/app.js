@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'dva'
 import { withRouter } from 'dva/router'
 
-import { Loader, Header } from 'components'
+import { Loader, Sider } from 'components'
 import { Layout } from 'antd'
 
-const { Content, Footer } = Layout
+const { Content } = Layout
 
-const App = ({ children, location, loading, dispatch }) => {
+const App = ({ children, location, loading, dispatch, app }) => {
   const { pathname } = location
+  const { collapsed } = app
   const showHeader = pathname !== '/login'
 
   function onLogout () {
@@ -20,16 +21,17 @@ const App = ({ children, location, loading, dispatch }) => {
     dispatch({ type: 'app/navigate', pathname: key })
   }
 
+  function onCollapse () {
+    dispatch({ type: 'app/collapse' })
+  }
+
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      {showHeader ? (<Header onLogout={onLogout} path={pathname} onNavClick={onNavigate} />) : ''}
-      <Content>
+    <Layout style={{ minHeight: '100vh', flexDirection: 'row' }}>
+      {showHeader ? (<Sider onLogout={onLogout} path={pathname} onNavClick={onNavigate} collapsed={collapsed} onCollapse={onCollapse} />) : ''}
+      <Layout>
         <Loader fullScreen spinning={loading.global} />
-        <Layout style={{ margin: '50px auto', maxWidth: '1600px' }}>
-          <Content>{children}</Content>
-        </Layout>
-      </Content>
-      <Footer style={{ textAlign: 'center', bottom: '0px', background: '#f7f7f7' }}>Slync Inc., &copy; 2017</Footer>
+        <Content>{children}</Content>
+      </Layout>
     </Layout>
   )
 }
@@ -39,6 +41,7 @@ App.propTypes = {
   location: PropTypes.object,
   loading: PropTypes.object,
   dispatch: PropTypes.func,
+  app: PropTypes.object,
 }
 
 export default withRouter(connect(({ app, loading }) => ({ app, loading }))(App))

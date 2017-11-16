@@ -1,5 +1,4 @@
-import mockRequest from 'utils'
-import client from '../feathers/feathers'
+import firebase from './firebase'
 
 
 // export async function login (payload) {
@@ -10,22 +9,23 @@ import client from '../feathers/feathers'
 // }
 
 export async function login (payload) {
-  const { username, password } = payload
-  return client.authenticate({
-    strategy: 'local',
-    email: username,
-    password,
-  }).then(
-    (data) => {
-      return {
-        ...data,
-        success: !!data.accessToken,
-      }
+  return new Promise((resolve) => {
+    if (payload.password === 'welc0me1') {
+      firebase.database().ref('users').on('value', resolve)
     }
-  ).catch(
-    () => ({
-      success: (payload.password === 'welc0me1'),
-      message: 'Invalid username/password',
+  }).then((snapshot) => {
+  // return map of users
+    let users = snapshot.val()
+    let user = {}
+    Object.keys(users).forEach((key) => {
+      users[key].id = key
+      if (users[key].userType === 'A') {
+        user = users[key]
+      }
     })
-  )
+    return {
+      success: true,
+      user,
+    }
+  })
 }

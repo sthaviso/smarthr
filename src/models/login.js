@@ -11,7 +11,7 @@ export default {
 
       if (data.success) {
         const { from } = locationQuery
-        yield put({ type: 'app/loggedIn', auth: data })
+        yield put({ type: 'app/loggedIn', auth: data, user: data.user })
         if (from && from !== '/login') {
           yield put(routerRedux.push(from))
         } else {

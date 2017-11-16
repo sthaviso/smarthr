@@ -32,7 +32,7 @@ const INTEGRATIONS = {
 }
 
 module.exports = {
-  name: 'Slync',
+  name: 'ESS',
   api: {
     userLogin: `${APIV1}/user/login`,
   },
