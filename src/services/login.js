@@ -17,12 +17,14 @@ export async function login (payload) {
   // return map of users
     let users = snapshot.val()
     let user = {}
-    Object.keys(users).forEach((key) => {
-      users[key].id = key
-      if (users[key].userType === 'A') {
-        user = users[key]
-      }
-    })
+    if (users != null) {
+      Object.keys(users).forEach((key) => {
+        users[key].id = key
+        if (users[key].userType === 'A') {
+          user = users[key]
+        }
+      })
+    }
     return {
       success: true,
       user,
